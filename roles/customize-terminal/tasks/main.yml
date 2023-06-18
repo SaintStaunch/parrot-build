@@ -15,14 +15,14 @@
   when: profile_list.value is none
 - name: "Adding our profile"
   set_fact:
-    new_profile_list: "{{ profile_list.value | regex_replace(']$', \", 'video']\") }}"
+    new_profile_list: "{{ profile_list.value | regex_replace(']$', \", 'SaintShell']\") }}"
 - name: "Writing updated profile list"
   dconf:
     key: "/org/mate/terminal/global/profile-list"
     value: "{{ new_profile_list }}"
-  when: "'video' not in profile_list.value"
-- name: "Restoring Video Profile from Dump"
+  when: "'SaintShell' not in profile_list.value"
+- name: "Restoring SaintShell Profile from Dump"
   shell:
-    cmd: "dconf load /org/mate/terminal/profiles/video/ < {{ role_path }}/files/dconf-dump-video"
-  when: "'video' not in profile_list.value"
+    cmd: "dconf load /org/mate/terminal/profiles/SaintShell/ < {{ role_path }}/files/dconf-dump-video"
+  when: "'SaintShell' not in profile_list.value"
 
