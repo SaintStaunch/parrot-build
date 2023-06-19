@@ -6,6 +6,20 @@
       - pipx
       - ntpdate
       - flameshot
+      - ffuf
+      - rlwrap 
+      - exploitdb 
+      - krb5-user 
+      - snapd 
+      - mingw-w64
+      - feroxbuster 
+      - snapd 
+      - proxychains4 
+      - samba 
+      - libsasl2-modules-gssapi-mit 
+      - libssl-dev 
+      - npm 
+      - natpmpc
     state: latest
   become: true
   become_method: sudo
