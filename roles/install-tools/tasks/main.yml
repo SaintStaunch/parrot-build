@@ -1,6 +1,7 @@
 ---
 - include: apt-stuff.yml
 - include: kerbrute.yml
+- include: chisel-global.yml
 - include: github-repos.yml
 - include: python-tools.yml
 - include: gem-tools.yml
