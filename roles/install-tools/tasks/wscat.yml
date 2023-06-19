@@ -1,2 +1,2 @@
 - name: "install wscat"
-  shell: npm install -g wscat
+  shell: sudo npm install -g wscat
