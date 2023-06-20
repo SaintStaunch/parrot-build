@@ -10,7 +10,7 @@
   become: true
   become_method: sudo
 
-  - name: Create temporary build directory
+- name: Create temporary build directory
   ansible.builtin.tempfile:
     state: directory
   register: build_dir
