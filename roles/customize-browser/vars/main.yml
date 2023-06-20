@@ -14,3 +14,5 @@ FirefoxPlugins:
   - "darkreader"
   - "foxyproxy-standard"
   - "wappalyzer"
+  - "cookie-editor"
+  - "languagetool"
