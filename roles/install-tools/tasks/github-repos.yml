@@ -10,10 +10,15 @@
   become: true
   become_method: sudo
 
+  - name: Create temporary build directory
+  ansible.builtin.tempfile:
+    state: directory
+  register: build_dir
+
 - name: "Copying python script to download github releases"
   copy:
     src: "files/githubdownload.py"
-    dest: "/tmp/githubdownload.py"
+    dest: "{{ build_dir.path }}/githubdownload.py"
     owner: root
     group: root
     mode: 0755
@@ -21,7 +26,7 @@
   become_method: sudo
 
 - name: "Downloading github releases"
-  shell: "/tmp/githubdownload.py {{ item.repo }} {{ item.regex }} {{ item.location }} {% if item.filename is defined %}{{ item.filename }}{% endif %}"
+  shell: "{{ build_dir.path }}/githubdownload.py {{ item.repo }} {{ item.regex }} {{ item.location }} {% if item.filename is defined %}{{ item.filename }}{% endif %}"
   loop:
     - { repo: "jpillora/chisel",  regex: "_linux_amd64.gz", location: "/opt/chisel" }
     - { repo: "jpillora/chisel",  regex: "_windows_amd64.gz", location: "/opt/chisel" }
