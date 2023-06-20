@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=MrParrot
+Type=X-GNOME-Metatheme
+Comment=
+
+[X-GNOME-Metatheme]
+GtkTheme=BlackMATE
+MetacityTheme=ARK-Dark
+IconTheme=hackthebox
+CursorTheme=breeze_cursors
+CursorSize=24
+NotificationTheme=slider
+BackgroundImage=/usr/share/backgrounds/splash2.jpg
