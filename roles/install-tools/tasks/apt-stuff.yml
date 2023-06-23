@@ -31,9 +31,20 @@
   become: true
   become_method: sudo
 
-- name: "Copy Neo4j wrapper script"
-  copy:
-    src: "{{ role_path }}/files/neo4j"
-    dest: "{{ ansible_env.HOME }}"
-    shell: sudo mv ~/neo4j /usr/bin && sudo chmod +x /usr/bin/neo4j 
+- name: Create temporary build directory
+  ansible.builtin.tempfile:
+    state: directory
+  register: build_dir
 
+- name: "Copying neo4j wrapper"
+  copy:
+    src: "files/neo4j"
+    dest: "{{ build_dir.path }}/neo4j"
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+  become_method: sudo
+
+- name: "Moving to /usr/bin/"
+  shell: "sudo mv{{ build_dir.path }}/neo4j /usr/bin/"
