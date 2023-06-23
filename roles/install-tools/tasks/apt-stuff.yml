@@ -34,6 +34,11 @@
 - name: "Copy Neo4j wrapper script"
   copy:
     src: "{{ role_path }}/files/neo4j"
-    dest: "{{ ansible_env.HOME }}../../../usr/bin/"
+    dest: "{{ ansible_env }}/usr/bin/"
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+  become_method: sudo
   become: true
   become_method: sudo
