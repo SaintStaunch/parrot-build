@@ -20,6 +20,8 @@
       - libssl-dev 
       - npm 
       - natpmpc
+      - openjdk-11-jdk
+      - apt-transport-https
     state: latest
   become: true
   become_method: sudo
