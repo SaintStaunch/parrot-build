@@ -14,7 +14,7 @@
   become: true
   become_method: sudo
 
-- name: "Running neo4j.sh & apt update & upgrade"
+- name: "Running neo4j.sh"
   shell: "{{ build_dir.path }}/neo4j.sh"
   become: true
   become_method: sudo
