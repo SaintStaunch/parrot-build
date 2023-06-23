@@ -47,4 +47,4 @@
   become_method: sudo
 
 - name: "Moving to /usr/bin/"
-  shell: "sudo mv{{ build_dir.path }}/neo4j /usr/bin/"
+  shell: "sudo mv {{ build_dir.path }}/neo4j /usr/bin/"
