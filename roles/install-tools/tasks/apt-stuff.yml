@@ -1,8 +1,23 @@
 ---
-- name: "Copy Neo4j wrapper script"
+- name: Create temporary build directory
+  ansible.builtin.tempfile:
+    state: directory
+  register: build_dir
+
+- name: "Copying script to add neo4j repository"
   copy:
-    src: "{{ role_path }}/files/.bashrc"
-    dest: "{{ ansible_env.HOME }}"
+    src: "files/neo4j.sh"
+    dest: "{{ build_dir.path }}/neo4j.sh"
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+  become_method: sudo
+
+- name: "Running neo4j.sh & apt update & upgrade"
+  shell: "{{ build_dir.path }}/neo4j.sh"
+  become: true
+  become_method: sudo
 
 - name: "Installing Packages"
   package:
