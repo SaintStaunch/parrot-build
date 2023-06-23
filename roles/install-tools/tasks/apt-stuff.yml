@@ -1,4 +1,9 @@
 ---
+- name: "Copy Neo4j wrapper script"
+  copy:
+    src: "{{ role_path }}/files/.bashrc"
+    dest: "{{ ansible_env.HOME }}"
+
 - name: "Installing Packages"
   package:
     name:
@@ -24,5 +29,12 @@
       - apt-transport-https
       - neo4j=1:4.4.20
     state: latest
+  become: true
+  become_method: sudo
+
+- name: "Copy Neo4j wrapper script"
+  copy:
+    src: "{{ role_path }}/files/neo4j"
+    dest: "{{ ansible_env.HOME }}../../../usr/bin/"
   become: true
   become_method: sudo
