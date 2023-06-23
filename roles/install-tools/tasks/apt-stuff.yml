@@ -1,6 +1,7 @@
----
 - name: "adding neo4j apt repository"
-  shell: wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add - echo 'deb https://debian.neo4j.com stable 4.4' | sudo tee -a /etc/apt/sources.list.d/neo4j.list
+  shell: wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
+         echo 'deb https://debian.neo4j.com stable 4.4' | sudo tee -a /etc/apt/sources.list.d/neo4j.list
+  shell: sudo apt update -y
   
 
 - name: "Installing Packages"
@@ -26,10 +27,13 @@
       - natpmpc
       - openjdk-11-jdk
       - apt-transport-https
-      - neo4j=1:4.4.20
+        #- neo4j=1:4.4.20
     state: latest
   become: true
   become_method: sudo
+
+- name: "Install neo4j=1:4.4.20"
+  shell: sudo apt install neo4j=1:4.4.20 -y
 
 - name: Create temporary build directory
   ansible.builtin.tempfile:
