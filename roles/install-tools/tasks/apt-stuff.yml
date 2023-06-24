@@ -35,7 +35,7 @@
       - natpmpc
       - openjdk-11-jdk
       - apt-transport-https
-        #- neo4j=1:4.4.20
+      - exiftool
     state: latest
   become: true
   become_method: sudo
