@@ -19,7 +19,7 @@
   shell: echo 'deb https://debian.neo4j.com stable 4.4' | sudo tee -a /etc/apt/sources.list.d/neo4j.list
   
 - name: "sudo apt update"
-  shell: sudo apt update -y
+  shell: sudo apt update -y --allow-downgrades
   
 
 - name: "Installing Packages"
