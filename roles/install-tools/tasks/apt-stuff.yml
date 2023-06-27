@@ -51,7 +51,7 @@
   become_method: sudo
 
 - name: "Install neo4j=1:4.4.20"
- shell: sudo apt install neo4j=1:4.4.20 -y --allow-downgrades
+  shell: sudo apt install neo4j=1:4.4.20 -y --allow-downgrades
 
 - name: Create temporary build directory
   ansible.builtin.tempfile:
