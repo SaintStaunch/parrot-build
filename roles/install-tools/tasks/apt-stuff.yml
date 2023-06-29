@@ -26,6 +26,7 @@
   package:
     name:
       - jq
+      - go
       - pipx
       - ntpdate
       - flameshot
