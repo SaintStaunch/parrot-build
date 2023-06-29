@@ -1,6 +1,6 @@
 ---
 - name: "install Kerbrute"
-  shell: sudo go install github.com/ropnop/kerbrute@master
+  shell: go install github.com/ropnop/kerbrute@master
 
 - name: "copy kerbrute to /usr/local/bin/"
   shell: sudo cp ~/go/bin/kerbrute /usr/local/bin/
