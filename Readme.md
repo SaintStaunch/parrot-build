@@ -3,6 +3,7 @@
 # Instructions
   
 * Start with Parrot HTB Edition -->> curl https://deb.parrot.sh/parrot/iso/5.3/Parrot-htb-5.3_amd64.iso -o Parrot-htb-5.3_amd64.iso
+* ((ALSO works with "Security Edition" .iso))
   ## run " sudo apt update -y && sudo apt upgrade -y " \\first
 * Install Ansible (pip3 install ansible)
 * Clone and enter the repo (git clone)
