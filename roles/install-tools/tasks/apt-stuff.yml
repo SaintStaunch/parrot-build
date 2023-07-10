@@ -46,6 +46,7 @@
       - openjdk-11-jdk
       - apt-transport-https
       - exiftool
+      - maven
     state: latest
   become: true
   become_method: sudo
