@@ -38,6 +38,10 @@
     - { repo: "antonioCoco/RunasCs", regex: "RunasCs.zip", location: "/opt/runasCs" }
     - { repo: "DominicBreuker/pspy", regex: "pspy64", location: "/opt/pspy" }
     - { repo: "DominicBreuker/pspy", regex: "pspy32", location: "/opt/pspy" }
+    - { repo: "vinsworldcom/NetCat64", regex: "nc64.exe", location: "/opt/nc64" }
+    - { repo: "vinsworldcom/NetCat64", regex: "nc64-32.exe", location: "/opt/nc64" }
+    #- { repo: "opsec-infosec/nmap-static-binaries", regex: "nmap-x64.tar.gz", location: "/opt/nmap-x64" }
+    #- { repo: "opsec-infosec/nmap-static-binaries", regex: "nmap-x86_64.tar.gz", location: "/opt/nmap-x86_64" }
   async: 45
   poll: 0
   become: true
