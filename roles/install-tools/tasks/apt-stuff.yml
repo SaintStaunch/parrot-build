@@ -17,9 +17,18 @@
          
 - name: "adding neo4j repo"
   shell: echo 'deb https://debian.neo4j.com stable 4.4' | sudo tee -a /etc/apt/sources.list.d/neo4j.list
+
+- name: "adding kubectl apt key"
+  shell: curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+  
+- name: "removing previous kubernetes.list"
+  shell: sudo rm -rf /etc/apt/sources.list.d/kubernetes.list 
+         
+- name: "adding kubernetes repo"
+  shell: echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
   
 - name: "sudo apt update"
-  shell: sudo apt update -y --allow-downgrades
+  shell: sudo apt update -y 
   
 
 - name: "Installing Packages"
@@ -47,6 +56,7 @@
       - apt-transport-https
       - exiftool
       - maven
+      - kubectl
     state: latest
   become: true
   become_method: sudo
@@ -71,3 +81,6 @@
 
 - name: "Moving to /usr/bin/"
   shell: "sudo mv {{ build_dir.path }}/neo4j /usr/bin/"
+
+- name: "install kubeletctl binary"
+  shell: curl -LO https://github.com/cyberark/kubeletctl/releases/download/v1.9/kubeletctl_linux_amd64 && chmod a+x ./kubeletctl_linux_amd64 && sudo mv ./kubeletctl_linux_amd64 /usr/local/bin/kubeletctl
