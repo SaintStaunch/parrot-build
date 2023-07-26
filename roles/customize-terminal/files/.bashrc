@@ -118,6 +118,7 @@ alias em='emacs -nw'
 alias dd='dd status=progress'
 alias _='sudo'
 alias _i='sudo -i'
+alias wireshark='sudo wireshark -style Adwaita-Dark'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
