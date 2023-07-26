@@ -26,7 +26,13 @@
          
 - name: "adding kubernetes repo"
   shell: echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-  
+
+- name: "adding packages-microsoft-prod.deb"
+  shell: wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+
+- name: "dpkg -i packages-microsoft-prod.deb"
+  shell: sudo dpkg -i packages-microsoft-prod.deb  
+
 - name: "sudo apt update"
   shell: sudo apt update -y 
   
@@ -57,6 +63,10 @@
       - exiftool
       - maven
       - kubectl
+      - dotnet-sdk-7.0
+      - dotnet-runtime-7.0
+      - dotnet-targeting-pack-7.0
+      - mono-complete
     state: latest
   become: true
   become_method: sudo
