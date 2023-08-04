@@ -71,6 +71,8 @@
       - dotnet-targeting-pack-7.0
       - mono-complete
       - adwaita-qt
+      - snmp 
+      - snmp-mibs-downloader
     state: latest
   become: true
   become_method: sudo
