@@ -1,2 +1,6 @@
-- name: "install wscat"
+- name: "npm install wscat"
   shell: sudo npm install -g wscat
+
+- name: "npm install axios"
+  shell: sudo npm install -g axios
+
