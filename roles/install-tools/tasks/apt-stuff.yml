@@ -97,6 +97,7 @@
       - tnscmd10g
       - whatweb
       - wkhtmltopdf
+      - seclists
     state: latest
   become: true
   become_method: sudo
