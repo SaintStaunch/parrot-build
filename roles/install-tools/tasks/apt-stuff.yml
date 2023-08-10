@@ -82,7 +82,6 @@
       - snmp-mibs-downloader
       - libnode72
       - nodejs
-      - axios
     state: latest
   become: true
   become_method: sudo
