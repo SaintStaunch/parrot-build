@@ -91,7 +91,7 @@
       - oscanner
       - redis-tools
       - smbmap 
-      - snmpwalk
+      - snmp
       - sslscan
       - svwar
       - tnscmd10g
@@ -125,3 +125,7 @@
 
 - name: "install kubeletctl binary"
   shell: curl -LO https://github.com/cyberark/kubeletctl/releases/download/v1.9/kubeletctl_linux_amd64 && chmod a+x ./kubeletctl_linux_amd64 && sudo mv ./kubeletctl_linux_amd64 /usr/local/bin/kubeletctl
+
+#- name: "Install snmp"
+ # shell: sudo apt-get install snmp -y 
+
