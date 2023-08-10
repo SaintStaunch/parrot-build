@@ -33,6 +33,21 @@
     state: directory
   register: build_dir
 
+- name: "Copy torsocks.conf"
+  copy:
+    src: "files/torsocks.conf"
+    dest: "{{ build_dir.path }}/torsocks.conf"
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+  become_method: sudo
+
+- name: Create temporary build directory
+  ansible.builtin.tempfile:
+    state: directory
+  register: build_dir
+
 - name: "Copy sshd_config"
   copy:
     src: "files/sshd_config"
@@ -137,5 +152,20 @@
 
 - name: "Moving to /etc/"
   shell: "sudo mv {{ build_dir.path }}/krb5.conf /etc/krb5.conf"
+
+  - name: Create temporary build directory
+  ansible.builtin.tempfile:
+    state: directory
+  register: build_dir
+
+- name: "Copy .bashrc to /root/"
+  copy:
+    src: "files/.bashrc"
+    dest: "{{ build_dir.path }}/root/"
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+  become_method: sudo
 
 
