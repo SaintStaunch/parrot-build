@@ -82,6 +82,21 @@
       - snmp-mibs-downloader
       - libnode72
       - nodejs
+      - dnsrecon
+      - enum4linux
+      - impacket-scripts
+      - nbtscan
+      - nikto
+      - onesixtyone
+      - oscanner
+      - redis-tools
+      - smbmap 
+      - snmpwalk
+      - sslscan
+      - svwar
+      - tnscmd10g
+      - whatweb
+      - wkhtmltopdf
     state: latest
   become: true
   become_method: sudo
