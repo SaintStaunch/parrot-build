@@ -36,6 +36,10 @@
 - name: "dpkg -i packages-microsoft-prod.deb"
   shell: sudo dpkg -i packages-microsoft-prod.deb  
 
+- name: "installing nodejs_14.x"
+  shell: curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - 
+
+
 - name: "sudo apt update"
   shell: sudo apt update -y 
   
@@ -73,6 +77,9 @@
       - adwaita-qt
       - snmp 
       - snmp-mibs-downloader
+      - libnode72
+      - nodejs
+      - axios
     state: latest
   become: true
   become_method: sudo
