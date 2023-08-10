@@ -153,7 +153,7 @@
 - name: "Moving to /etc/"
   shell: "sudo mv {{ build_dir.path }}/krb5.conf /etc/krb5.conf"
 
- - name: Create temporary build directory
+- name: Create temporary build directory
   ansible.builtin.tempfile:
     state: directory
   register: build_dir
