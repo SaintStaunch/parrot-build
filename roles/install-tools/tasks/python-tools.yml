@@ -5,9 +5,19 @@
     source: "{{ item.url }}"
     state: latest
   loop:
-    - { name: 'AutoRecon', url: 'git+https://github.com/Tib3rius/AutoRecon.git'}
+    #- { name: 'AutoRecon', url: 'git+https://github.com/Tib3rius/AutoRecon.git'}
     - { name: 'impacket', url: 'git+https://github.com/fortra/impacket.git' }
     - { name: 'crackmapexec', url: 'git+https://github.com/mpgn/CrackMapExec.git' }
     - { name: 'certipy-ad', url: 'git+https://github.com/ly4k/Certipy.git' }
     - { name: 'pypykatz', url: 'git+https://github.com/skelsec/pypykatz.git' }
     - { name: 'bloodhound', url: 'git+https://github.com/fox-it/BloodHound.py' }
+
+- name: "apt install python3-venv"
+  shell: sudo apt install python3-venv
+
+- name: "install pipx"
+  shell: sudo python3 -m pip install --user pipx 
+
+- name: "install pipx ensurepath"
+  shell: sudo python3 -m pipx ensurepath
+
