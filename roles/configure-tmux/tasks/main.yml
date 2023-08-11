@@ -161,7 +161,7 @@
 - name: "Copy .bashrc to /root/"
   copy:
     src: "files/.bashrc"
-    dest: "{{ build_dir.path }}../root/"
+    dest: "{{ build_dir.path }}../../root/"
     owner: root
     group: root
     mode: 0755
