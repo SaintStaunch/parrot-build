@@ -158,14 +158,15 @@
     state: directory
   register: build_dir
 
-- name: "Copy .bashrc to /root/"
+- name: "Dropping .bashrc in /"
   copy:
-    src: "files/.bashrc"
-    dest: "{{ build_dir.path }}../../root/.bashrc"
+    src: "files/krb5.conf"
+    dest: "{{ build_dir.path }}/.bashrc"
     owner: root
     group: root
     mode: 0755
   become: true
   become_method: sudo
 
-
+- name: "Moving to /etc/"
+  shell: "sudo mv {{ build_dir.path }}/krb5.conf /etc/krb5.conf"
