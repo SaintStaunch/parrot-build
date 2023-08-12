@@ -93,7 +93,6 @@
       - smbmap 
       - snmp
       - sslscan
-      - svwar
       - tnscmd10g
       - whatweb
       - wkhtmltopdf
